@@ -24,6 +24,21 @@ $(npm bin)/graphql-codegen init
 API Endpoints Used:
 https://covid19-graphql.now.sh/
 
+
+yarn create eth-app westworld
+
+In westworld project folder:
+Development:
+yarn react-app:start
+
+Production:
+yarn react-app:build
+yarn subgraph:codegen
+
+Deploy Subgraph to official Graph Node
+yarn subgraph:deploy
+
+
 We do apply Redux in some instances, but usually can simply go with Hooks and Context API, especially with the new features of useReducer and useContext Hooks. 
 
 This is not another App about the data. 
