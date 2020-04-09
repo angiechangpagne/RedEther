@@ -22,7 +22,7 @@ $(npm bin)/graphql-codegen init
 //queries to bin folder and cofigures the code generator
 
 API Endpoints Used:
-https://covid19-graphql.now.sh/
+http://api.catalysis-hub.org/graphql
 
 
 yarn create eth-app westworld

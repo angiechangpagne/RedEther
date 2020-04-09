@@ -1,11 +1,11 @@
 import gql from 'graphql-tag';
 
-export const QUERY_RED_LIST = gql`
-query RedList {
-  reactions{
-    first: 2
-    }
-   {
+export const QUERY_REACTION = gql`
+query Reaction {
+  reactions {
+    first: 10
+    } 
+    {
     edges {
       node {
         Equation
