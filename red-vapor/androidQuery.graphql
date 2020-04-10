@@ -6,3 +6,25 @@ query {
     alias
   }
 }
+
+#write function with parameter type specified 
+queryAndroidById($id: ID!s) {
+  android(id: $id){
+    alias
+  }
+}
+#inner query
+
+query EntityExist($id: ID){
+  entity(id: $id){
+    alias
+    ... on Martian {
+      ipAddress
+    }
+  }
+}
+
+{
+  id: 42
+}
+#add inline frag

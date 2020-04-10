@@ -1,0 +1,12 @@
+{
+  search(text:"et") {
+    __typename
+    ... on Martian {
+      ipAddress
+      alias
+    }
+    ... on Android {
+      alias
+    }
+  }
+}

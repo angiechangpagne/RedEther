@@ -1,0 +1,6 @@
+query engageReactions($entity: Entity!, $input: PointMutationInput!) {
+  dispatchReaction(entity: $entity, input: $input){
+    alias
+    consensusDoc
+  }
+}

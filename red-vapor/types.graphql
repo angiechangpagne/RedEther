@@ -1,6 +1,6 @@
 # data definition for types
 #Entity is GraphQL Object Type
-type Martian {
+type Martian implements Entity {
   id: ID!
   alias: String!
   ipAddress: String!
@@ -15,9 +15,10 @@ type Query {
   android(id: ID!): Android
 }
 
-type Android {
+type Android implements Entity {
   id: ID!
-  
+  alias: String!
+
 }
 #alis is a localization to type Entity
 #String-Scalar, end of local subgraph tree
@@ -25,3 +26,43 @@ type Android {
 #the only time a recent Node path will have no history is its birth, we will set a default dummy block as root
 
 #set default value of unit to meter
+enum chemicalContext {
+  OXIDATE
+  REDUCER
+  ALKALINE
+  ACIDITY
+  PROMOTER
+}
+#promoter region, all blocks are reagents to chemical reactions
+
+
+#we can apply inheritance and polymorphism for the status of the block entities, 
+#we can more easily access their direct data in an Entity cache rather than check for types
+#global quick nested document store
+interface Entity {
+  id:ID!
+  alias: String!
+}
+
+#current main chemical composition is reduced state
+#data chain is localized, cuts off one there is overlap to preserve data truth without storing it multiple times
+interface GraphNode {
+  id: ID!
+  dataChain: [Entity!]!
+}
+
+#the main graph is not away of its subgraphs, but its subgraphs are aware of it. 
+#this is meta but this is also universal 
+#the "graph leader" does not know it is the leader, it thinks it is a common
+#the subgraphs know this
+type Graph implements GraphNode{
+  id: ID!
+  dataChain: [Entity!]!
+}
+
+type SubGraph implements GraphNode {
+  id: ID!
+  dataChain:[Entity!]!
+  origin: Graph!
+  chemicalContext: Enum!
+}

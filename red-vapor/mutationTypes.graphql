@@ -1,0 +1,20 @@
+input pointMutationInput {
+  chainReact: Boolean!
+  nextSubgraphMother: SubgraphNode
+}
+#define SubgraphNode type
+
+#does not require the extra validation, only generic
+#other subgraphs will track to see if this was invalid, then undo it and mark
+
+#having input inheritance interfaces
+#for inputs that must be very specific, eg protect the decentralized app by asking for more info, 
+#extended by extra layer of security interactions, such as large mutations to the chain or changes
+interface input inputOversight {
+  documentPattern: String!
+}
+#consider making the document overste an Object type and mutation request must pass through 3 layers of security
+
+input shiftMutationInput implements inputOversight {
+  documentPattern: String!
+}
