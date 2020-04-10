@@ -1,0 +1,27 @@
+# data definition for types
+#Entity is GraphQL Object Type
+type Martian {
+  id: ID!
+  alias: String!
+  ipAddress: String!
+  publicEtherKey: String!
+  publicMoneroKey: String!
+  recentNodePath: [Block!]!
+  pathLength(unit: LengthUnit = METER): Float
+}
+
+type Query {
+  martian(alias: String!): Martian
+  android(id: ID!): Android
+}
+
+type Android {
+  id: ID!
+  
+}
+#alis is a localization to type Entity
+#String-Scalar, end of local subgraph tree
+#Block-Vector Path
+#the only time a recent Node path will have no history is its birth, we will set a default dummy block as root
+
+#set default value of unit to meter

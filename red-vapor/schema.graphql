@@ -1,8 +1,4 @@
-{
-  entity {
-    alias
-    ipAddress
-    publicEtherKey
-    publicMoneroKey
-  }
+schema {
+  query: Query
+  mutation: Mutation
 }

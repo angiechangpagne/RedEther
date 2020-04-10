@@ -1,0 +1,8 @@
+{
+  martian {
+    alias
+    ipAddress
+    publicEtherKey
+    publicMoneroKey
+  }
+}

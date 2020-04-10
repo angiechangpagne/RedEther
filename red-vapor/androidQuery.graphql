@@ -1,0 +1,8 @@
+query {
+  martian {
+    alias
+  }
+  android(id:"42") {
+    alias
+  }
+}
