@@ -1,15 +1,15 @@
 import gql from 'graphql-tag';
-
-export const QUERY_FORMER_HOST = gql`
-query FormerHost {
+//mapping actions to dispatch reducer
+export const QUERY_FORMER_HOSTS = gql`
+query {
   publications {
-  totalCount
-  edges {
-    node {
-      id
-      authors
-    }
+    totalCount
+    edges {
+      node {
+        id
+        authors
+        }
+      }
   }
-}
 }
 `;

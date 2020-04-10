@@ -1,18 +1,16 @@
 import gql from 'graphql-tag';
-
-export const QUERY_REACTION = gql`
-query Reaction {
-  reactions {
-    first: 10
-    } 
-    {
+//query by reactant chemical symbol eg "CO" Carbon Monoxide at room temperature
+export const QUERY_REACTIONS = gql`
+query {
+  reactions(chemicalComposition:"Pt") {
     edges {
       node {
+        id
         Equation
         chemicalComposition
-        reactionEnergy
+        activationEnergy
+        }
       }
     }
   }
-}
 `;

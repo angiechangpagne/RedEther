@@ -8,13 +8,15 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 
 const client = new ApolloClient({
-  uri: `https://covid19-graphql.now.sh/`,
-})
+  uri: `http://api.catalysis-hub.org/graphql`,
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+    <ApolloHooksProvider client={client}>
+      <App />
+    </ApolloHooksProvider>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
