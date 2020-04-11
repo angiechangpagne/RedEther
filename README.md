@@ -71,7 +71,7 @@ Assembly Script proxies Typescript to WASM
 For more information, check out https://thegraph.com/
 
 
-We do apply Redux in some instances, but usually can simply go with Hooks and Context API, especially with the new features of useReducer and useContext Hooks. 
+Redux in some instances, but usually can simply go with Hooks and Context API, especially with the new features of useReducer and useContext Hooks. 
 
 This is not another App about the data. 
 The data is not something we can directly change. 
@@ -79,6 +79,8 @@ Some of the data is unclear, much could be latent or misconstrued.
 Let's not focus on things that are out of our control. 
 Let's look at a bigger picture. 
 Let's study it. Study the wave, the frequencies, the particles,  the vapor. Study The Red Ether. (blogpost coming soon).
+
+concurrently run oil-rig and red-ether
 
 For Now, there are features on the Dashboard: 
 Global Map
