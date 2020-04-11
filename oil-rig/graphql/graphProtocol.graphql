@@ -1,0 +1,103 @@
+#query example, query does not need to be at top level root
+#query single Token entity
+{
+  token(id: "1") {
+    id
+    owner
+  }
+}
+#id required, String!
+
+#query all tokens
+{
+  tokens {
+    id
+    owner
+  }
+}
+
+
+#sorting
+{
+  tokens(orderBy: price, orderDirection: asc) {
+    id
+    owner
+  }
+}
+
+
+#select
+{
+  tokens(first: 10) {
+    id
+    owner
+  }
+}
+
+#get middle of collection-skip
+{
+  tokens(first: 10, skip: 10) {
+    id
+    owner
+  }
+}
+
+
+#check for failed links
+{
+  challenges(where: { outcome: "failed" }) {
+    challenger
+    outcome
+    application {
+      id
+    }
+  }
+}
+
+#compare greateer than, _gt, _lte, _lt, _not, _contains, _not_in, _not_contains, _starts_with, _ends_with, _not_starts_with, 
+{
+  applications(where: { deposite_gt: "10000000000" }) {
+    id
+    whitelisted
+    deposit
+  }
+}
+
+
+#time travel, value in the past
+{ 
+  challenges(block: { number : 8000000 }) {
+    challenger
+    outcome
+    applciation {
+      id
+    }
+  }
+}
+
+{
+  challenges(block: { hash: "0x5a0b54d5dc17e0aadc383d2db43b0a0d3e029c4c" }) {
+    challenger
+    outcome
+    application {
+      id
+    }
+  }
+}
+
+#find tokens with ids, then substrcibe all Token entity changes and fetch falues of id and owner on the updated entity
+query {
+  tokens {
+    id
+    owner
+  }
+}
+
+subscription {
+  tokens {
+    id
+    owner
+  }
+}
+
+#no mutations, the blockchain is immutable

@@ -21,6 +21,7 @@
     "react-apollo-hooks": "^0.5.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "spotify-graphql": "^1.4.0",
     "typescript": "^3.7.5"
   },
   "scripts": {

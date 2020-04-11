@@ -60,6 +60,7 @@ Note: 1 manifest can be use for multiple smart contracts on Ether.
 
 Subgraph Schema: schema.graphql
 
+Note: There are no mutations for the Entity graphql root queries, because it's Blockchain. 
 
 Add Typescript Dependencies 
 npm install graph-ts

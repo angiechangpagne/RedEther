@@ -1,0 +1,9 @@
+#entity define Type
+
+type Entities {
+
+}
+
+type Entity {
+  
+}
