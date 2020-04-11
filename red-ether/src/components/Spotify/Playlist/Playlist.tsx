@@ -1,22 +1,24 @@
 import { SpotifyGraphQLClient } from 'spotify-graphql';
 import config from '../config';
+
 SpotifyGraphQLClient(config).query(`
-  {
-    track(id: "3W2ZcrRsInZbjWylOi6KhZ") {
+{
+  user(id: "11879785") {
+    playlists {
       name
-      artists {
-        name
-      }
-      album {
-        name
+      tracks {
+        track {
+          id
+          name
+        }
       }
     }
   }
-`).then(executionResult => {
+}`
+).then(executionResult => {
   if(executionResult.errors) {
-    console.log(executionResult.errors);
+    console.log('error');
   } else {
-    console.log('success');
     console.log(JSON.stringify(executionResult.data));
   }
 })
