@@ -49,14 +49,68 @@ Install the graph-cli in the global folder
 npm install -g @graphprotocol/graph-cli
 
 Create Subgraph
-graph init
+graph init: 
+1.) Option A: create a new Subgraph from an existing contract
 
-graph init --from-example-contract <GITHUB_USER>/<SUBGRAPH_NAME> [<DIRECTORY>]
+Creates Subgraph from existing contract, indexes over events
+-Fetches Contact ABI
+graph init \
+  --from-contract <CONTRACT_ADDRESS> \
+  [--network <ETHEREUM_NETWORK>] \
+  [--abi <FILE>] \
+  <GITHUB_USER>/<SUBGRAPH_NAME> [<DIRECTORY>]
+
+--network(Network), and --abi (Path for ABI) are optional
+
+Networks Supported by GraphProtocol Host:
+-mainnet
+-kovan
+-rinkeby
+-ropsten
+-goerli
+-poa-core
+-xdai
+
+2.) Option B: use graph init to create a project based on an example subgraph
+graph init --from-example <GITHUB_USER>/<SUBGRAPH_NAME> [<DIRECTORY>]
+
 
 Subgraph Manifest: subgraph.yml
 Defines what keys to index from decentralized app data and how to map the event date to graphql endpoint.
 
-Note: 1 manifest can be use for multiple smart contracts on Ether.
+Parts of the Manifesto: 
+description:
+repository:
+dataSources.source: address(optional), abi
+
+dataSources.source.startBlock: (optional) start block to idnex from-a hashed address(usually index from origin-entrypoint)
+
+dataSources.mapping.entities: the mapped entities to key the store, defined by schema.graphql
+
+dataSources.mapping.abis:(>=1) Name of ABI files for source contract and other smart contracts that collaborate
+
+dataSources.mapping.eventHandlers: smart contract reactions among the subgraphs in the Ether
+  -mapping defined in ./src/mapping.ts
+  -maps/catalyzes events into store entities
+
+dataSources.mapping.callHandlers:  array of current smart contract functions(reactions) for current subgraph and handlers in the mapping that catalyze the inputs and outputs to function calls into store entities
+
+dataSources.mapping.blockHandlers: arrays of block reactions for the subgraph and handlers to run the reaction when a block is tailed to the chain. A filter is necessary so the reaction does not catalyze everyblock(immutability).
+-can provide filter (call)-will run the reaction on the block if it has at least one call to the source
+
+
+Note: 1 manifest can be used for multiple smart contracts on Ether, and indexed by one subgraph.
+-add the sources to dataSources array
+
+The order of the trigger reactions from the source are ordered by:
+1. Transaction index in the block
+2. Event triggers take precendence over Call triggers within the same transaction, based on the order of the original manifest
+3. Block trigers run last in the order defined by the manifest. 
+
+Obtaining ABIs:
+Must match contracts. 
+-download a public project ether contract and get the ABI from running truffle compile or solce
+
 
 Subgraph Schema: schema.graphql
 
@@ -100,15 +154,14 @@ What IS Project Red Ether?
 return 
 
 Technology Tags
-MERNG Stack
-TGR Stack
+MERNG Stack / TGR Stack
 React 
 Typescript
 graphql
+decentralized-applications / dApps
 api
 React-Hooks
-Redux
-React-Redux
+Redux /React-Redux
 TDD
 
 
