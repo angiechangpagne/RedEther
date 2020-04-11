@@ -113,6 +113,10 @@ Must match contracts.
 
 
 Subgraph Schema: schema.graphql
+-interface definiton language allows for modularity, polymorphism, inheritance for Entity types to keep it super DRY and compact in the ether
+
+Structure of Data: 
+
 
 Note: There are no mutations for the Entity graphql root queries, because it's Blockchain. 
 
@@ -127,7 +131,7 @@ For more information, check out https://thegraph.com/
 
 Redux in some instances, but usually can simply go with Hooks and Context API, especially with the new features of useReducer and useContext Hooks. 
 
-This is not another App about the data. 
+This is not another App about the COVID data. 
 The data is not something we can directly change. 
 Some of the data is unclear, much could be latent or misconstrued. 
 Let's not focus on things that are out of our control. 
