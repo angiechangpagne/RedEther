@@ -1,6 +1,7 @@
 # RedEther
 This is NOT a COV-ID 19 Application 
 
+
 React
 Typescript
 GraphQL
@@ -39,7 +40,7 @@ Deploy Subgraph to official Graph Node
 yarn subgraph:deploy
 
 What is The Graph?
-The Graph is on the Ethereum Blockchain, essentially a data structure that contains subgraphs to index and track data from decentralized applications. 
+The Graph is on the Ethereum Blockchain protocol for indexing, essentially a data structure that contains subgraphs to index and track data from decentralized applications. 
 
 Because of the flexibility in graphql, it can quickly store necessary indexed data to one of its object stores without giving too much information on it's exact underlyings, as it mutates the query. 
 
@@ -124,7 +125,11 @@ Add Typescript Dependencies
 npm install graph-ts
 npm install --dev @graphprotocol/graph-ts
 
+Mappings are in AssemblyScript
 Assembly Script proxies Typescript to WASM
+
+
+Creating a Subgraph:
 
 For more information, check out https://thegraph.com/
 
